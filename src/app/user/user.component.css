@@ -1,0 +1,42 @@
+.container{
+  position: relative;
+  margin-top: 10%;
+  margin-left: 30%;
+  margin-right: 30%;
+  color: whitesmoke;
+  height: 100%;
+  overflow: hidden;
+  text-align: center;
+  padding: 7px 10px;
+}
+
+.card{
+  padding: 5px 5px;
+}
+
+.tabs{
+  border-bottom: whitesmoke dashed;
+  margin-left: -2em;
+}
+
+.tab{
+  font-size: 30px;
+  padding-right: 40px;
+  padding-left:40px;
+  padding-bottom:20px;
+  display: inline-block;
+  text-decoration: none;
+
+}
+
+.container a {
+  text-decoration: none;
+  text-align: left;
+  color: whitesmoke;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.container a.active{
+  text-decoration: underline;
+}

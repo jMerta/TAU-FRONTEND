@@ -1,0 +1,19 @@
+<div class="card">
+  <form class="form-content" #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)">
+    <div class="row">
+      <h2>User Registration</h2>
+    </div>
+    <div class="row">
+      <label>User Name</label>
+      <input type="text" name="username" #username="ngModel" ngModel>
+    </div>
+    <div class="row">
+      <label>Password</label>
+      <input type="text" name="password" #password="ngModel" ngModel>
+    </div>
+    <div class="row">
+      <button class="submit" type="submit">Submit</button>
+    </div>
+  </form>
+
+</div>

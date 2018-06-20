@@ -1,0 +1,22 @@
+.row{
+  text-align: left;
+  padding: 5px;
+}
+
+label{
+  position: center;
+}
+
+input{
+  position: center;
+  float: right;
+  background-color: whitesmoke;
+  border: none;
+  inline-size: 60%;
+
+}
+
+.submit{
+  margin-top: 20px;
+  float: right;
+}
