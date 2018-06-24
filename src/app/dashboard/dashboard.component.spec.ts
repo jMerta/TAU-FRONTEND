@@ -1,23 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SignInComponent } from './sign-in.component';
-import {AuthGuard} from '../../auth/auth.guard';
-import {AppComponent} from '../../app.component';
+import { DashboardComponent } from './dashboard.component';
+import {AuthGuard} from '../auth/auth.guard';
+import {AppComponent} from '../app.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
 import {FormsModule} from '@angular/forms';
-import {HeaderComponent} from '../../home/header/header.component';
-import {AuthInterceptor} from '../../auth/auth.interceptor';
-import {UserComponent} from '../user.component';
-import {DashboardComponent} from '../../dashboard/dashboard.component';
+import {HeaderComponent} from '../home/header/header.component';
+import {AuthInterceptor} from '../auth/auth.interceptor';
+import {UserComponent} from '../user/user.component';
+import {SignInComponent} from '../user/sign-in/sign-in.component';
 import {BrowserModule} from '@angular/platform-browser';
-import {FooterComponent} from '../../home/footer/footer.component';
-import {HomeComponent} from '../../home/home/home.component';
-import {SignUpComponent} from '../sign-up/sign-up.component';
-import {UserService} from '../shared/user.service';
+import {FooterComponent} from '../home/footer/footer.component';
+import {HomeComponent} from '../home/home/home.component';
+import {SignUpComponent} from '../user/sign-up/sign-up.component';
+import {UserService} from '../user/shared/user.service';
 import {APP_BASE_HREF} from '@angular/common';
-import {ToastrModule} from 'ngx-toastr';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 const appRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   { path: 'home', component: HomeComponent},
@@ -29,10 +27,9 @@ const appRoutes: Routes = [
   // otherwise redirect to home
   { path: '**', redirectTo: 'home' }
 ];
-
-describe('SignInComponent', () => {
-  let component: SignInComponent;
-  let fixture: ComponentFixture<SignInComponent>;
+describe('DashboardComponent', () => {
+  let component: DashboardComponent;
+  let fixture: ComponentFixture<DashboardComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -50,13 +47,7 @@ describe('SignInComponent', () => {
         BrowserModule,
         FormsModule,
         HttpClientModule,
-        RouterModule.forRoot(appRoutes),
-        BrowserAnimationsModule,
-        ToastrModule.forRoot({
-          timeOut: 5000,
-          positionClass: 'toast-bottom-right',
-          preventDuplicates: true,
-        })
+        RouterModule.forRoot(appRoutes)
       ],
       providers: [UserService, AuthGuard,
         {
@@ -70,7 +61,7 @@ describe('SignInComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SignInComponent);
+    fixture = TestBed.createComponent(DashboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

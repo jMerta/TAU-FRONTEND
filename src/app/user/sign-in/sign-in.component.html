@@ -1,3 +1,19 @@
-<p>
-  sign-in works!
-</p>
+<div class="card">
+  <form class="form-content" #userLoginForm="ngForm" (ngSubmit)="OnSubmit(username.value, password.value)">
+    <div class="row">
+      <h2>User Authentication</h2>
+    </div>
+    <div class="row">
+      <label>User Name</label>
+      <input type="text" name="username" #username="ngModel" ngModel>
+    </div>
+    <div class="row">
+      <label>Password</label>
+      <input type="text" name="password" #password="ngModel" ngModel>
+    </div>
+    <div class="row">
+      <button class="submit" type="submit">Submit</button>
+    </div>
+  </form>
+
+</div>

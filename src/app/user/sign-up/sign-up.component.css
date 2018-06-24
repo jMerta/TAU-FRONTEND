@@ -13,7 +13,11 @@ input{
   background-color: whitesmoke;
   border: none;
   inline-size: 60%;
+}
 
+input.ng-invalid.nd-dirty{
+  border-bottom-color: indianred;
+  box-shadow: 0 1px, 0 0;
 }
 
 .submit{

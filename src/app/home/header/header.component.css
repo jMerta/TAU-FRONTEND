@@ -15,11 +15,13 @@
   font-size: 13px;
   line-height: 15px;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .header a.active {
   background-color: #074e69;
   color: whitesmoke;
+  cursor: pointer;
 }
 
 .header-right {

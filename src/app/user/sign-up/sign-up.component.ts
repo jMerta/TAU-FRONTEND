@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from '../shared/user.model';
 import {NgForm} from '@angular/forms';
 import {UserService} from '../shared/user.service';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-sign-up',
@@ -12,12 +13,11 @@ export class SignUpComponent implements OnInit {
 
   user: User;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private toastr: ToastrService) { }
 
   ngOnInit() {
     this.resetForm();
   }
-
 
   resetForm(form?: NgForm) {
     if (form != null) {
@@ -30,10 +30,11 @@ export class SignUpComponent implements OnInit {
   }
 
   OnSubmit(form: NgForm) {
-    this.userService.registerUser(form.value).subscribe((data: any) => {
-        if (data.Succedded === true) {
-          this.resetForm();
-        }
-      } );
+    this.userService.registerUser(form.value).subscribe(() => {
+          this.resetForm(form);
+          this.toastr.success('User successfully registered');
+        },
+        err => this.toastr.error('Error occurred, try again.')
+       );
   }
 }

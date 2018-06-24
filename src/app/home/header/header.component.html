@@ -4,5 +4,6 @@
     <a routerLink='/dashboard' routerLinkActive="active">Your Dashboard</a>
     <a routerLink='/home' routerLinkActive="active">Home</a>
     <a routerLink='/login' routerLinkActive="active">Log In</a>
+    <a (click)="userService.logout()" *ngIf="userService.isLoggedIn | async">Log Out</a>
   </div>
 </div>

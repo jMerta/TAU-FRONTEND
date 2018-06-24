@@ -1,0 +1,5 @@
+<h2>It will be moved to sidebar. Should display all categories belonging to user.</h2>
+<ul *ngIf="userCategories">
+  <li *ngFor="let userCategory of userCategories">Name: {{userCategory.name}}</li>
+</ul>
+
