@@ -9,7 +9,7 @@ import {AuthGuard} from '../../auth/auth.guard';
 import {HomeComponent} from '../../home/home/home.component';
 import {AppComponent} from '../../app.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, NgForm} from '@angular/forms';
 import {HeaderComponent} from '../../home/header/header.component';
 import {AuthInterceptor} from '../../auth/auth.interceptor';
 import {BrowserModule} from '@angular/platform-browser';
@@ -77,4 +77,15 @@ describe('SignUpComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should be undefined', () => {
+    const testForm = <NgForm>{
+      value: {
+        username: 'Hello',
+        password: ''
+      }
+    };
+    expect(component.OnSubmit(testForm)).toBeUndefined();
+  });
+
 });
