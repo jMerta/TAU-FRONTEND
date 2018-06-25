@@ -94,6 +94,19 @@ describe('UserService', () => {
         expect(successResult.status).toBe(500);
       }));
   }));
+
+  it('should throw exception when creating new user', inject([UserService], (service: UserService) => {
+    const body = new User();
+
+    body.username = null;
+    body.password = 'password';
+
+    try {
+      service.registerUser(body);
+    } catch (e) {
+      expect(true).toBeTruthy();
+    }
+  }));
 });
 
 

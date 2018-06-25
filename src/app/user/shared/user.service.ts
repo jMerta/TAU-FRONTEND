@@ -23,6 +23,9 @@ export class UserService {
       username: user.username,
       password: user.password
     };
+    if (user.username == null) {
+      throw new Error('Username is empty');
+    }
     const reqHeader = new HttpHeaders({ 'No-Auth': 'True'});
     return this.http.post(this.rootUrl + '/api/account/register', body, { headers: reqHeader} );
   }
