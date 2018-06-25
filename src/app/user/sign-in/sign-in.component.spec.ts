@@ -18,6 +18,7 @@ import {UserService} from '../shared/user.service';
 import {APP_BASE_HREF} from '@angular/common';
 import {ToastrModule} from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {User} from '../shared/user.model';
 const appRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   { path: 'home', component: HomeComponent},
@@ -77,5 +78,16 @@ describe('SignInComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should login properly', function () {
+    const body = new User();
+
+    body.username = 'username';
+    body.password = 'password';
+    expect(component.OnSubmit(body.username, body.password).subscribe(
+      (successResult) => {
+        expect(successResult.status).toBe(200);
+      }));
   });
 });
