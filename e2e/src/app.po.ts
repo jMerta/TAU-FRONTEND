@@ -8,4 +8,8 @@ export class AppPage {
   getParagraphText() {
     return element(by.css('app-root h1')).getText();
   }
+
+  getNavbarElement() {
+    return element(by.css('app-root app-header header'));
+  }
 }
